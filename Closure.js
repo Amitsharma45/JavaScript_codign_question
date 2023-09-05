@@ -2,15 +2,15 @@
 // Lexical Scope: A function can access variables defined in the parent function, even after the parent function has closed.
 // Lexical environment: The lexical environment is the environment where the code was written.
 
-function outer(){
-    var a= 'outer function';
-    function inner(){
-        console.log(a)
-    }
-    return inner;
-}
-const res = outer();
-res();
+// function outer(){
+//     var a= 'outer function';
+//     function inner(){
+//         console.log(a)
+//     }
+//     return inner;
+// }
+// const res = outer();
+// res();
 
 // Advantages of Closure
 // 1. Closures can be used to implement private methods.
@@ -33,3 +33,46 @@ res();
 // 6. Closures can create garbage collection issues.
 // 7. Closures can create encapsulation issues.
 // 8. Closures can create memory consumption issues.
+
+// 
+// function createBase(num){
+//     var temp = num;
+//     return function(num2){
+//         console.log(temp+num2)
+//     }
+// }
+
+// var addSix= createBase(6); 
+// addSix(10);
+// addSix(21)
+
+function myMemoize(fn){
+    var res={}
+    return function cal(...arg){
+        let temp= JSON.stringify(arg);
+        if(!res[temp]){
+            res[temp]=fn(...arg)
+        }
+        return res[temp];
+    }
+
+}
+function fn(a,b){
+    for(let i=0;i<100000;i++){}
+    return a+b;
+
+}
+const run= myMemoize(fn);
+
+console.time("Start first");
+console.log(run(5,6));
+console.timeEnd("Start first")
+console.time('Start second');
+console.log(run(5,6));
+console.timeEnd('Start second')
+console.time('Start second');
+console.log(run(5,8));
+console.timeEnd('Start second')
+console.time('Start second');
+console.log(run(5,8));
+console.timeEnd('Start second')

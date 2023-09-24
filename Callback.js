@@ -1,79 +1,31 @@
-// const asyncFunc = (callback) =>{
-//     setTimeout(()=>{
-//      console.log("it reaches at setTimeout function");
-//      callback();
-//     },1000)
-// };
-// const greet = () =>{
-//     console.log("hello");
-// }
-// console.log("start");
-// asyncFunc(greet);
-// console.log("end");
+// What is Callback in JS?
+// A callback is a function passed as an argument to another function. This technique allows a function to call another function. A callback function can run after another function has finished.'
 
-// FOR 0 SECOND
+// Adavantages of using Callback
+// 1. Callbacks are easy to understand and implement.
+// 2. Callbacks can be used synchronously as well as asynchronously.
+// 3. Callbacks can be used in a variety of ways.
 
-// const asyncFunc = (callback) =>{
-//     setTimeout(()=>{
-//      console.log("it reaches at setTimeout function");
-//      callback();
-//     },0)
-// };
-// const greet = () =>{
-//     console.log("hello");
-// }
-// console.log("start");
-// asyncFunc(greet);
-// console.log("end");
+// Disadvantages of using Callback
+// 1. Callbacks can lead to Callback Hell.
+// 2. Callbacks are not suitable for synchronous functions.
+// 3. Callbacks can not be used for error handling.
+// 4. Callbacks can not be used for multiple asynchronous operations.
 
-//Implement a function retry that takes a function and a maximum number of retry attempts. The retry function should attempt to execute the provided function until it succeeds or the maximum number of attempts is reached. After the final attempt, invoke a callback with the result or an error.
+// Callback Hell
+// Callback hell is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. The code becomes a mess and debugging becomes a nightmare.
 
-// const performTask = (attempt,callback) =>{
-//     const random = Math.random();
-//     if(random < 0.8){
-//         console.log(`Attempt ${attempt} : failed`);
-//         throw new Error("task failed");
-//     }else{
-//         console.log(`Attempt ${attempt}: Succeeded`);
-//         callback("task result")
-//     }
-// }
-// function handleResult(result) {
-//     console.log("Task completed with result:", result);
-//   }
-  
-//   function handleFailure(error) {
-//     console.log("Task failed with error:", error.message);
-//   }
-  
-//   performTask( 5, handleResult, handleFailure);
+// Callback Inversion or Inversion of Control
+// Callback inversion is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. The code becomes a mess and debugging becomes a nightmare.
 
-//Create a function mapAsync that takes an array and an asynchronous mapping function (callback). The mapAsync function should apply the mapping function to each element in the array asynchronously and then invoke a callback with the mapped array.
-// const mapAsync = (arr,callback,result) =>{
-//     const output = [];
-//     let count  = 0
-//     for(let i=0; i<arr.length ; i++){
-//        result(arr[i],(res)=>{
-//         output.push(res);
-//         count++;
+console.log("Start")
+function callback(message,cb){
+    setTimeout(() => {
+        cb(`Hello, ${message}`)
+    }, 0);
+}
+callback('amit',(result)=>{
+    console.log(result)
+});
 
-//         if(arr.length === count){
-//             callback(output);
-//         }
-//        })
-//     }
-  
-// }
-// const asyncDouble = (number,callback) =>{
-//   return setTimeout(()=>{
-//      callback(number * 2) ;
-    
-//    },100);
-// }
-
-// const showResult = (value) => {
-//   console.log(`the output of mapAsync function ${[value]}`)
-// }
-
-// const arr = [2,4,3,6];
-// mapAsync(arr,showResult,asyncDouble)
+console.log("End")

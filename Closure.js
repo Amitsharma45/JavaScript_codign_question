@@ -46,33 +46,53 @@
 // addSix(10);
 // addSix(21)
 
-function myMemoize(fn){
-    var res={}
-    return function cal(...arg){
-        let temp= JSON.stringify(arg);
-        if(!res[temp]){
-            res[temp]=fn(...arg)
-        }
-        return res[temp];
+// function myMemoize(fn){
+//     var res={}
+//     return function cal(...arg){
+//         let temp= JSON.stringify(arg);
+//         if(!res[temp]){
+//             res[temp]=fn(...arg)
+//         }
+//         return res[temp];
+//     }
+
+// }
+// function fn(a,b){
+//     for(let i=0;i<100000;i++){}
+//     return a+b;
+
+// }
+// const run= myMemoize(fn);
+
+// console.time("Start first");
+// console.log(run(5,6));
+// console.timeEnd("Start first")
+// console.time('Start second');
+// console.log(run(5,6));
+// console.timeEnd('Start second')
+// console.time('Start second');
+// console.log(run(5,8));
+// console.timeEnd('Start second')
+// console.time('Start second');
+// console.log(run(5,8));
+// console.timeEnd('Start second')
+
+// Couter using closure
+
+
+function Counter(){
+    var cout=0;
+    return function (){
+        return ++cout;
     }
-
 }
-function fn(a,b){
-    for(let i=0;i<100000;i++){}
-    return a+b;
 
-}
-const run= myMemoize(fn);
 
-console.time("Start first");
-console.log(run(5,6));
-console.timeEnd("Start first")
-console.time('Start second');
-console.log(run(5,6));
-console.timeEnd('Start second')
-console.time('Start second');
-console.log(run(5,8));
-console.timeEnd('Start second')
-console.time('Start second');
-console.log(run(5,8));
-console.timeEnd('Start second')
+const incfuc= Counter();
+console.log(incfuc())
+console.log(incfuc())
+
+console.log(incfuc())
+
+
+

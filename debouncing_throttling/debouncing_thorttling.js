@@ -26,9 +26,7 @@
 // const d=debounceFun((...args) => {
 //     console.log('eventtaiger', args[0]);
 // }, 500)
-// inputbox.addEventListener('keyup', function (e) {
-//     d(e.target.value)
-// });
+
 
 
 // throttling implementataion

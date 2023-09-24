@@ -8,24 +8,24 @@
 // Capturing
 // the event starts from the top element and trickles down to the element that triggered the event.
 
-const div = document.querySelector('div')
-const p = document.querySelector('p')
-const btn = document.querySelector('button')
+// const div = document.querySelector('div')
+// const p = document.querySelector('p')
+// const btn = document.querySelector('button')
 
-function fun(event) {
-    console.log()
-}
+// function fun(event) {
+//     console.log()
+// }
 
-div.addEventListener('click', (e) => {
-    // e.stopPropagation()
-    console.log(e.currentTarget.tagName)
-})
-p.addEventListener('click', (e) => {
-    console.log(e.currentTarget.tagName)
-})
-btn.addEventListener('click', (e) => {
-    console.log(e.currentTarget.tagName)
-})
+// div.addEventListener('click', (e) => {
+//     // e.stopPropagation()
+//     console.log(e.currentTarget.tagName)
+// })
+// p.addEventListener('click', (e) => {
+//     console.log(e.currentTarget.tagName)
+// })
+// btn.addEventListener('click', (e) => {
+//     console.log(e.currentTarget.tagName)
+// })
 
 
 // Event bubbling  bottom to top and ijn capturing vice.vera.
@@ -37,3 +37,7 @@ btn.addEventListener('click', (e) => {
 
 // to stop event propagation in code.
 // e.stopPropagation()
+
+let a=b=10;
+console.log(a)
+console.log(b)
